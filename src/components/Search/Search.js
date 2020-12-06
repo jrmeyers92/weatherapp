@@ -4,18 +4,23 @@ import styles from "./Search.module.css";
 const Search = (props) => {
 	const [inputValue, setInputValue] = useState("");
 
-	const handleInputChange = (e) => {
-		setInputValue(e.target.value);
+	const onSubmit = (e) => {
+		e.preventDefault();
+		props.getInput(inputValue);
 	};
 
 	return (
 		<div className={styles.search}>
-			<input
-				type='search'
-				className={styles.search__input}
-				placeholder='Search a city'
-				value={inputValue}
-				onChange={handleInputChange}></input>
+			<form onSubmit={onSubmit}>
+				<input
+					type='text'
+					className={styles.search__input}
+					placeholder='Search a city'
+					value={inputValue}
+					onChange={(e) => {
+						setInputValue(e.target.value);
+					}}></input>
+			</form>
 		</div>
 	);
 };
