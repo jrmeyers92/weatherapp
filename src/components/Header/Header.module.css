@@ -1,0 +1,9 @@
+.header__title {
+	text-align: center;
+}
+
+.header__icon {
+	font-size: 3rem;
+	width: 100%;
+	text-align: center;
+}
